@@ -39,7 +39,7 @@ include './data.php';
 
     <table class="table table-dark table-hover">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Parking</th>
@@ -48,39 +48,39 @@ include './data.php';
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <?php foreach ($hotels as $hotel) { ?>
+            <?php foreach ($hotels as $hotel) { ?>
+            <tr class="text-center">
                 <td scope="col">
-                    Name :
+
                     <?= $hotel['name']; ?>
                 </td>
-            </tr>
-            <tr>
+
                 <td scope="col">
-                    Description :
+
                     <?= $hotel['description']; ?>
                 </td>
-            </tr>
-            <tr>
+
                 <td scope="col">
-                    Parking :
-                    <?= $hotel['parking']; ?>
+                    <?php if ($hotel['parking']) {
+                            $valore = "si";
+                        } else {
+                            $valore = "no";
+                        } ?>
+                    <?= $valore; ?>
                 </td>
-            </tr>
-            <tr>
+
                 <td scope="col">
-                    Vote :
+
                     <?= $hotel['vote']; ?>
                 </td>
-            </tr>
-            <tr>
+
                 <td scope="col">
-                    Distance :
+
                     <?= $hotel['distance_to_center']; ?>
                 </td>
-                <?php }
-                ; ?>
             </tr>
+            <?php }
+            ; ?>
         </tbody>
     </table>
 </body>
